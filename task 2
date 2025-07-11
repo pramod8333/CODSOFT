@@ -1,0 +1,36 @@
+def calculator() -> None:
+    """Prompt for two numbers and an operation, then print the result."""
+    try:
+        num1 = float(input("Enter first number  : "))
+        num2 = float(input("Enter second number : "))
+    except ValueError:
+        print("❌  Please enter valid numbers.")
+        return
+
+    print("\nChoose an operation")
+    print("  +  Addition")
+    print("  -  Subtraction")
+    print("  *  Multiplication")
+    print("  /  Division")
+
+    op = input("Operation (+, -, *, /): ").strip()
+
+    if op == "+":
+        result = num1 + num2
+    elif op == "-":
+        result = num1 - num2
+    elif op == "*":
+        result = num1 * num2
+    elif op == "/":
+        if num2 == 0:
+            print("❌  Division by zero is undefined.")
+            return
+        result = num1 / num2
+    else:
+        print("❌  Invalid operation.")
+        return
+
+    print(f"\n✅  Result: {num1} {op} {num2} = {result}")
+
+if __name__ == "__main__":
+    calculator()
